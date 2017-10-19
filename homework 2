@@ -1,0 +1,106 @@
+//Write a function that returns tuple.
+func divideElements() -> (Int,Int,Int){
+	let dividing = 10
+	let divisor = 5
+	let remaining = 0
+	
+	return(dividing,divisor,remaining)
+}
+	let elements = divideElements()
+	print("Dividing \(elements.0)")
+	print("Divisor \(elements.1)")
+	print("Remainig \(elements.2)")
+	
+print("----------------------------")
+
+//Write a function that returns tuple with parameter labels.
+
+func person() -> (Name : String, Surname : String, Age : Int){
+	
+	let Name = "Berk"
+	let Surname = "Yılmazer"
+	let Age = 22
+	
+	return(Name,Surname,Age)
+}
+
+print(person())
+
+print("--------------------------------")
+
+//Write switch control that checks a tuple values and executes different cases.
+
+typealias Tax = (engineSize : Int, year : Int)
+
+func engineTax(_ taxes : Tax){
+	
+	switch taxes {
+		case let (engineSize, year) where engineSize > 6200 && year < 3 :
+			print("Your tax rate is %160")
+		case let (engineSize,year) where engineSize < 6200 && engineSize > 2000 && year > 3 :
+		print ("Your tax rate is %120")
+		
+		default:
+		print("Your tax rate is %60")
+	}
+}
+
+let car1 = Tax(7200,1)
+let car2 = Tax (3000,4)
+engineTax(car1)
+engineTax(car2)
+
+print("--------------------------")
+
+//Put the tuple type into typealias and use it in a function while returning.
+
+typealias clothes = ( top : String, bottom : String, shoes : String)
+
+func clothesDetail(_ top : String , _ bottom : String , _ shoes : String) -> clothes {
+	return(top, bottom, shoes)
+}
+
+let person1 = clothesDetail("Adidas","Nike","Lescon")
+let person2 = clothesDetail("Kemal Tanca","Abdullah Kigili","Hatemoglu")
+
+print(person1.top)
+print(person1.bottom)
+print(person2.shoes)
+
+print("------------------------------")
+
+//Create an array with 5 elements, different country cities are preferred.
+
+var colombia : Array<String> = ["Medellin", "Bogota", "Cali", "Santa Marta"]
+
+print("Create Array")
+print(" ")
+
+//Loop over the created array and process the elements using for loop.
+
+for cities in colombia {
+	
+	print(cities)
+	
+}
+
+print("----------------------------")
+colombia.append("Pasto") 
+
+print("Number of cities : \(colombia.count)")
+
+colombia.remove(at : 3)
+print("---------------- After remove ----------")
+for cities in colombia {
+	
+	print(cities)
+	
+}
+
+colombia.insert("Popayan", at: 2)
+print("------------ After insert -------------")
+for cities in colombia {
+	
+	print(cities)
+	
+}
